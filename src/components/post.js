@@ -2,7 +2,7 @@
 export const posts = [
   {
     id: 1,
-    title: "Corte de Electricidad en el Centro",
+    title: "Corte de Luz",
     description: "Un corte de electricidad ha afectado varias cuadras del centro. No se reportan heridos graves.",
     gravity: "media",
     location: "Centro",
@@ -10,7 +10,7 @@ export const posts = [
   },
   {
     id: 2,
-    title: "Sobrevivientes de Incendio en Casa",
+    title: "Incendio",
     description: "Los residentes de la calle Maple afectados por un incendio necesitan suministros y refugio temporal.",
     gravity: "grave",
     location: "Calle Maple",
@@ -18,7 +18,7 @@ export const posts = [
   },
   {
     id: 3,
-    title: "Apoyo Necesario tras el Tsunami",
+    title: "Tsunami",
     description: "Los residentes de la zona costera necesitan asistencia urgente después de que un tsunami devastara sus hogares.",
     gravity: "muy grave",
     location: "Zona Costera",

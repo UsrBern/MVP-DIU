@@ -1,6 +1,6 @@
 import React from 'react';
 import GravityFlag from './GravityFlag';
-import './Post.css';
+import '../stylesheets/post/post.scss';
 
 const Post = ({ post }) => (
   <div className="post">

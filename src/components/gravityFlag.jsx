@@ -1,5 +1,5 @@
 import React from 'react';
-import './GravityFlag.css';
+import '../stylesheets/gravity-flag/gravity-flag.scss';
 
 const GravityFlag = ({ gravity }) => {
   const colorMap = {

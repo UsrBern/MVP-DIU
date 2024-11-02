@@ -1,40 +1,38 @@
-import React, { useState } from 'react';
-import Filter from '../components/Filter';
+import React, { useState, useEffect } from 'react';
+import CreatePostForm from '../components/CreatePostForm';
 import Post from '../components/Post';
-import { posts } from '../data/posts';
 
 const Forum = () => {
-  const [filteredPosts, setFilteredPosts] = useState(posts);
-  const [filters, setFilters] = useState({
-    location: "",
-    type: "",
-    gravity: "",
-    search: ""
-  });
+  const [posts, setPosts] = useState([]);
 
-  const applyFilters = () => {
-    const filtered = posts.filter(post => {
-      const matchesLocation = filters.location ? post.location === filters.location : true;
-      const matchesType = filters.type ? post.type === filters.type : true;
-      const matchesGravity = filters.gravity ? post.gravity === filters.gravity : true;
-      const matchesSearch = filters.search ? post.title.toLowerCase().includes(filters.search.toLowerCase()) || post.description.toLowerCase().includes(filters.search.toLowerCase()) : true;
-      
-      return matchesLocation && matchesType && matchesGravity && matchesSearch;
-    });
+  // Cargar publicaciones desde localStorage al iniciar
+  // Serian las que estan en la carpeta /src/data
+  useEffect(() => {
+    const storedPosts = JSON.parse(localStorage.getItem('posts')) || [];
+    setPosts(storedPosts);
+  }, []);
 
-    setFilteredPosts(filtered);
-  };
+  // Guardar las publicaciones en localStorage cuando cambien
+  useEffect(() => {
+    localStorage.setItem('posts', JSON.stringify(posts));
+  }, [posts]);
 
-  const handleFilterChange = (name, value) => {
-    setFilters(prevFilters => ({ ...prevFilters, [name]: value }));
-    applyFilters();
+  // Función para añadir una nueva publicación
+  const addPost = (newPost) => {
+    setPosts((prevPosts) => [newPost, ...prevPosts]); // Añade el nuevo post al principio de la lista
   };
 
   return (
     <div>
-      <Filter onFilterChange={handleFilterChange} />
+      <h2>Foro de Ayuda Comunitaria</h2>
+      {/* Formulario para crear una nueva publicación */}
+      <CreatePostForm addPost={addPost} />
+      
+      {/* Muestra las publicaciones existentes */}
       <div className="posts-list">
-        {filteredPosts.map(post => <Post key={post.id} post={post} />)}
+        {posts.map((post) => (
+          <Post key={post.id} post={post} />
+        ))}
       </div>
     </div>
   );

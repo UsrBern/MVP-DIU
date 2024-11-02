@@ -17,10 +17,18 @@ export const NavBar = ({ isLoggedIn, username }) => {
         Ampolleta
       </NavLink>
       
-      {/* Muestra el nombre del usuario y un botón de "Cerrar Sesión" sin funcionalidad */}
+      {/* Botón para crear publicación */}
+      <NavLink className={navLinkClass} to='/create-post'>
+        Crear Publicación
+      </NavLink>
+
+      {/* Muestra el nombre del usuario y un botón de "Cerrar Sesión" */}
       {isLoggedIn && (
         <div className="nav-bar__auth">
           <span className="nav-bar__username">Bienvenido, {username}</span>
+          <button className="nav-bar__logout" disabled>
+            Cerrar Sesión
+          </button>
         </div>
       )}
     </nav>

@@ -1,26 +1,25 @@
-import React from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-
-import HomePage from '../pages/home_page'
-import LightbulbPage from '../pages/lightbulb_page'
-
-import NavBar from '../components/nav_bar'
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import CreatePostForm from '../components/createPostForm';
+import Forum from '../pages/forum';
+import NavBar from '../components/nav_bar'; // Asegúrate de importar NavBar si lo necesitas
 
 const Layout = () => {
   return (
-    <BrowserRouter>
-      <div className='layout'>
-        <h1 className='layout__title'>Interfaz energética</h1>
-        <NavBar />
-        <div className='layout__page'>
-          <Routes>
-            <Route path='/' element={<HomePage />} />
-            <Route path='/lightbulb' element={<LightbulbPage />} />
-          </Routes>
-        </div>
-      </div>
-    </BrowserRouter>
-  )
-}
+    <Router>
+      <NavBar /> {/* Puedes incluir el NavBar aquí para navegar entre páginas */}
+      <Routes>
+        {/* Ruta para el formulario de crear publicación */}
+        <Route path="/create-post" element={<CreatePostForm />} />
+        
+        {/* Ruta para el foro */}
+        <Route path="/forum" element={<Forum />} />
+        
+        {/* Ruta de inicio o cualquier otra que necesites */}
+        <Route path="/" element={<h2>Bienvenido a la Plataforma de Ayuda</h2>} />
+      </Routes>
+    </Router>
+  );
+};
 
-export default Layout
+export default Layout;

@@ -1,5 +1,5 @@
 import React from 'react';
-import GravityFlag from './GravityFlag';
+import GravityFlag from './gravityFlag';
 import '../stylesheets/post/post.scss';
 
 const Post = ({ post }) => (

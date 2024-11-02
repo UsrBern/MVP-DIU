@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import CreatePostForm from '../components/CreatePostForm';
-import Post from '../components/Post';
+import CreatePostForm from '../components/createPostForm';
+import Post from '../components/post';
 
 const Forum = () => {
   const [posts, setPosts] = useState([]);

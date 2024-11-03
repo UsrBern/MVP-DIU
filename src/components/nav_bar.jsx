@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import logo from '../../logo.png';
 
 export const NavBar = ({ isLoggedIn, username }) => {
   const navLinkClass = ({ isActive }) => {
@@ -8,17 +9,19 @@ export const NavBar = ({ isLoggedIn, username }) => {
     return classes.join(' ');
   };
 
+
   return (
-    <nav className='nav-bar'>
-      <NavLink className={navLinkClass} to='/'>
+    <nav className="nav-bar">
+      {/* Logo a homepage */}
+      <NavLink to="/" className="nav-bar__logo">
+        <img src={logo} alt="Logo" className="logo" />
+      </NavLink>
+
+      {/* Navegación */}
+      <NavLink className={navLinkClass} to="/">
         Inicio
       </NavLink>
-      <NavLink className={navLinkClass} to='/lightbulb'>
-        Ampolleta
-      </NavLink>
-      
-      {/* Botón para crear publicación */}
-      <NavLink className={navLinkClass} to='/create-post'>
+      <NavLink className={navLinkClass} to="/create-post">
         Crear Publicación
       </NavLink>
 
@@ -34,5 +37,4 @@ export const NavBar = ({ isLoggedIn, username }) => {
     </nav>
   );
 };
-
 export default NavBar;

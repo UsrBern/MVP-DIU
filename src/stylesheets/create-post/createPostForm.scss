@@ -1,28 +1,41 @@
 .create-post-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-  
-  .create-post-form input,
-  .create-post-form textarea,
-  .create-post-form select {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .create-post-form button {
-    padding: 10px;
-    color: white;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .create-post-form button:hover {
-    background-color: #0056b3;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.create-post-form input,
+.create-post-form textarea,
+.create-post-form select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.create-post-form button {
+  padding: 10px;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.create-post-form button:hover {
+  background-color: #0056b3;
+}
+
+.location-type-container {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.location-type-container input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}

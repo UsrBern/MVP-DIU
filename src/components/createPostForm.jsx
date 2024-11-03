@@ -1,26 +1,23 @@
 import React, { useState } from 'react';
 
 const CreatePostForm = ({ addPost }) => {
-  // Estados para almacenar los datos del formulario
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [location, setLocation] = useState('');
   const [type, setType] = useState('');
   const [gravity, setGravity] = useState('media');
 
-  // Función para enviar el formulario
   const handleSubmit = (e) => {
     e.preventDefault();
     const newPost = {
-      id: Date.now(), // Genera un ID único
+      id: Date.now(),
       title,
       description,
       location,
       type,
       gravity,
     };
-    addPost(newPost); // Llama a la función del componente padre para agregar el post
-    // Limpia el formulario
+    addPost(newPost);
     setTitle('');
     setDescription('');
     setLocation('');
@@ -37,31 +34,44 @@ const CreatePostForm = ({ addPost }) => {
         onChange={(e) => setTitle(e.target.value)}
         required
       />
+
+      {/* Contenedor en línea para Ubicación y Tipo de Evento */}
+      <div className="location-type-container">
+        <input
+          type="text"
+          placeholder="Ubicación"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Tipo de Evento"
+          value={type}
+          onChange={(e) => setType(e.target.value)}
+          required
+        />
+      </div>
+
       <textarea
         placeholder="Descripción"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         required
       />
-      <input
-        type="text"
-        placeholder="Ubicación"
-        value={location}
-        onChange={(e) => setLocation(e.target.value)}
+
+      <label htmlFor="gravity">Gravedad</label>
+      <select
+        id="gravity"
+        value={gravity}
+        onChange={(e) => setGravity(e.target.value)}
         required
-      />
-      <input
-        type="text"
-        placeholder="Tipo de Evento"
-        value={type}
-        onChange={(e) => setType(e.target.value)}
-        required
-      />
-      <select value={gravity} onChange={(e) => setGravity(e.target.value)} required>
+      >
         <option value="media">Media</option>
         <option value="grave">Grave</option>
         <option value="muy grave">Muy Grave</option>
       </select>
+
       <button type="submit">Publicar</button>
     </form>
   );

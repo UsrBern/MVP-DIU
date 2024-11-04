@@ -19,13 +19,14 @@ export const NavBar = ({ isLoggedIn, username }) => {
 
       {/* Navegación */}
       <NavLink className={navLinkClass} to="/">
-        Inicio
+        Foro
       </NavLink>
       <NavLink className={navLinkClass} to="/create-post">
         Crear Publicación
       </NavLink>
 
       {/* Muestra el nombre del usuario y un botón de "Cerrar Sesión" */}
+      {/* NO IMPLEMENTADO AUN */}
       {isLoggedIn && (
         <div className="nav-bar__auth">
           <span className="nav-bar__username">Bienvenido, {username}</span>

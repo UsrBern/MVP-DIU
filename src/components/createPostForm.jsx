@@ -1,28 +1,26 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const CreatePostForm = ({ addPost }) => {
+const CreatePostForm = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [location, setLocation] = useState('');
   const [type, setType] = useState('');
   const [gravity, setGravity] = useState('media');
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newPost = {
-      id: Date.now(),
-      title,
-      description,
-      location,
-      type,
-      gravity,
-    };
-    addPost(newPost);
+
+    // Limpiar el formulario
     setTitle('');
     setDescription('');
     setLocation('');
     setType('');
     setGravity('media');
+
+    // Redirigir a la pantalla de confirmación
+    navigate('/post-confirmation');
   };
 
   return (
@@ -34,8 +32,6 @@ const CreatePostForm = ({ addPost }) => {
         onChange={(e) => setTitle(e.target.value)}
         required
       />
-
-      {/* Contenedor en línea para Ubicación y Tipo de Evento */}
       <div className="location-type-container">
         <input
           type="text"
@@ -52,14 +48,12 @@ const CreatePostForm = ({ addPost }) => {
           required
         />
       </div>
-
       <textarea
         placeholder="Descripción"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         required
       />
-
       <label htmlFor="gravity">Gravedad</label>
       <select
         id="gravity"
@@ -71,7 +65,6 @@ const CreatePostForm = ({ addPost }) => {
         <option value="grave">Grave</option>
         <option value="muy grave">Muy Grave</option>
       </select>
-
       <button type="submit">Publicar</button>
     </form>
   );

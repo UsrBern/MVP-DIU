@@ -1,20 +1,61 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { posts } from '../data/posts';
+import '../stylesheets/postDetail/postDetail.scss';
+import sendIcon from '../assets/send-icon.png';
 
 const PostDetail = () => {
   const { id } = useParams();
   const post = posts.find((post) => post.id === parseInt(id, 10));
 
+  const [message, setMessage] = useState(""); 
+  const [showConfirmation, setShowConfirmation] = useState(false);
+
   if (!post) return <p>Publicación no encontrada.</p>;
 
+  const handleSendMessage = () => {
+    if (message.trim() !== "") {
+      setShowConfirmation(true);
+      setMessage("");
+      setTimeout(() => setShowConfirmation(false), 3000);
+    }
+  };
+
   return (
-    <div style={{ padding: "20px", backgroundColor: "#1b1b1b", color: "#fff", borderRadius: "8px" }}>
-      <h1>{post.title}</h1>
-      <p><strong>Ubicación:</strong> {post.location}</p>
-      <p><strong>Tipo:</strong> {post.type}</p>
-      <p><strong>Nivel de gravedad:</strong> {post.gravity}</p>
-      <p><strong>Descripción:</strong> {post.description}</p>
+    <div className="post-detail-container">
+      <div className="post-detail">
+        <h2>{post.title}</h2>
+        
+        <div className={`gravity-flag ${post.gravity.replace(" ", "-")}`}>
+          {post.gravity}
+        </div>
+
+        <p><strong>Ubicación:</strong> {post.location}</p>
+        <p><strong>Tipo:</strong> {post.type}</p>
+
+        <div className="description-box">
+          <p>{post.description}</p>
+        </div>
+
+        <div className="message-box">
+          <input
+            type="text"
+            className="message-input"
+            placeholder="Envia un mensaje"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
+          <button className="send-button" onClick={handleSendMessage}>
+            <img src={sendIcon} alt="Enviar" className="send-icon" />
+          </button>
+        </div>
+
+        {showConfirmation && (
+          <div className="confirmation-message">
+            Mensaje enviado correctamente
+          </div>
+        )}
+      </div>
     </div>
   );
 };

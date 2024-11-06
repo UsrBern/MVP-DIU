@@ -85,3 +85,8 @@
 .create-post-form button:hover {
   background-color: #0056b3;
 }
+
+.create-post-form .summary-textarea {
+  min-height: 40px !important;
+  resize: none;
+}

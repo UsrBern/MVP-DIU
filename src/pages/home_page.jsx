@@ -1,40 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Post from '../components/post';
-import { posts as mockPosts } from '../data/posts'; // Import mock posts
-import { locations, gravities, types as types } from '../data/filtros'; // Import filter options including type
+import { posts as mockPosts } from '../data/posts'; 
+import { locations, gravities, types as types } from '../data/filtros'; 
 import '../stylesheets/home_page/home_page.scss';
 
 const HomePage = () => {
-  const navigate = useNavigate(); // Hook para navegar programáticamente
+  const navigate = useNavigate(); 
   const [posts, setPosts] = useState([]);
-  const [searchTerm, setSearchTerm] = useState(''); // State for title search input
-  const [selectedLocation, setSelectedLocation] = useState(''); // State for location filter
-  const [selectedGravity, setSelectedGravity] = useState(''); // State for gravity filter
-  const [selectedType, setSelectedType] = useState(''); // State for type filter
+  const [searchTerm, setSearchTerm] = useState(''); 
+  const [selectedLocation, setSelectedLocation] = useState(''); 
+  const [selectedGravity, setSelectedGravity] = useState(''); 
+  const [selectedType, setSelectedType] = useState('');
 
-  // Load posts from localStorage or mock data on initial render
   useEffect(() => {
     const storedPosts = JSON.parse(localStorage.getItem('posts'));
     if (storedPosts && storedPosts.length > 0) {
       setPosts(storedPosts);
     } else {
-      setPosts(mockPosts); // Set default mock posts if none in localStorage
-      localStorage.setItem('posts', JSON.stringify(mockPosts)); // Initialize localStorage
+      setPosts(mockPosts); 
+      localStorage.setItem('posts', JSON.stringify(mockPosts));
     }
   }, []);
 
-  // Save posts to localStorage whenever they change
   useEffect(() => {
     localStorage.setItem('posts', JSON.stringify(posts));
   }, [posts]);
 
-  // Función para manejar la redirección a la página de detalles de la publicación
+ 
   const handleViewPost = (id) => {
     navigate(`/post/${id}`);
   };
 
-  // Filter posts based on title, location, gravity, and type
   const filteredPosts = posts.filter((post) => {
     const matchesTitle = post.title.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesLocation = selectedLocation ? post.location === selectedLocation : true;
@@ -48,7 +45,6 @@ const HomePage = () => {
     <div className="page-container">
       <h2>Foro de Ayuda Comunitaria</h2>
 
-      {/* Search bar */}
       <input
         type="text"
         placeholder="Búsqueda..."
@@ -57,9 +53,7 @@ const HomePage = () => {
         className="search-bar"
       />
 
-      {/* Filters Container */}
       <div className="filters-container">
-        {/* Filter by location */}
         <select
           value={selectedLocation}
           onChange={(e) => setSelectedLocation(e.target.value)}
@@ -73,7 +67,6 @@ const HomePage = () => {
           ))}
         </select>
 
-        {/* Filter by type */}
         <select
           value={selectedType}
           onChange={(e) => setSelectedType(e.target.value)}
@@ -87,7 +80,6 @@ const HomePage = () => {
           ))}
         </select>
 
-        {/* Filter by gravity */}
         <select
           value={selectedGravity}
           onChange={(e) => setSelectedGravity(e.target.value)}
@@ -102,7 +94,6 @@ const HomePage = () => {
         </select>
       </div>
 
-      {/* Display list of filtered posts */}
       <div className="posts-list">
         {filteredPosts.length > 0 ? (
           filteredPosts.map((post) => (

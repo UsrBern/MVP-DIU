@@ -5,7 +5,7 @@ const PostConfirmation = () => {
   const navigate = useNavigate();
 
   const handleReturn = () => {
-    navigate('/'); // Redirige al foro al hacer clic en "Volver"
+    navigate('/');
   };
 
   return (

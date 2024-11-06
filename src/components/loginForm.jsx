@@ -8,7 +8,7 @@ const LoginForm = ({ onLogin }) => {
     e.preventDefault();
     if (username && password) {
       localStorage.setItem('isLoggedIn', 'true');
-      localStorage.setItem('username', username); // Save username to show in the UI
+      localStorage.setItem('username', username);
       onLogin(username);
     } else {
       alert('Por favor, ingrese un usuario y contraseña');

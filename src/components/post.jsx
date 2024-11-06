@@ -4,7 +4,6 @@ import '../stylesheets/post/post.scss';
 
 const Post = ({ post, onViewPost }) => (
   <div className="post">
-    {/* Convertir título en un enlace clickeable */}
     <h2
       style={{ cursor: "pointer", color: "#61dafb" }}
       onClick={() => {
@@ -14,7 +13,7 @@ const Post = ({ post, onViewPost }) => (
       {post.title}
     </h2>
     <GravityFlag gravity={post.gravity} />
-    <p>{post.description}</p>
+    <p>{post.resumen}</p>
     <p><strong>Ubicación:</strong> {post.location}</p>
     <p><strong>Tipo:</strong> {post.type}</p>
   </div>

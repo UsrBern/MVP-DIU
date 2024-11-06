@@ -12,12 +12,10 @@ export const NavBar = ({ isLoggedIn, username }) => {
 
   return (
     <nav className="nav-bar">
-      {/* Logo a homepage */}
       <NavLink to="/" className="nav-bar__logo">
         <img src={logo} alt="Logo" className="logo" />
       </NavLink>
 
-      {/* Navegación */}
       <NavLink className={navLinkClass} to="/">
         Foro
       </NavLink>
@@ -25,8 +23,6 @@ export const NavBar = ({ isLoggedIn, username }) => {
         Crear Publicación
       </NavLink>
 
-      {/* Muestra el nombre del usuario y un botón de "Cerrar Sesión" */}
-      {/* NO IMPLEMENTADO AUN */}
       {isLoggedIn && (
         <div className="nav-bar__auth">
           <span className="nav-bar__username">Bienvenido, {username}</span>

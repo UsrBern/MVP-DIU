@@ -9,11 +9,11 @@
 .create-post-container {
   background-color: #A2BCE0;
   border-radius: 8px;
-  border: 2px solid #5299D3; /* Borde en Celestial Blue */
+  border: 2px solid #5299D3; 
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   padding: 2em;
-  width: 95%; /* Hace el contenedor más ancho */
-  max-width: 800px; /* Aumenta el límite máximo de ancho */
+  width: 95%; 
+  max-width: 800px;
   margin-top: 1em;
 }
 
@@ -43,7 +43,14 @@
   font-size: 1rem;
 }
 
-.create-post-form input,
+.create-post-form input {
+  width: 97.25%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #5299D3;
+  border-radius: 4px;
+  font-size: 1rem;
+}
 .create-post-form select {
   width: 100%;
   padding: 10px;
@@ -54,13 +61,14 @@
 }
 
 .create-post-form textarea {
-  width: 100%;
+  width: 97.25%;
   padding: 10px;
   margin-bottom: 20px;
   border: 1px solid #5299D3;
   border-radius: 4px;
   font-size: 1rem;
-  min-height: 150px; 
+  min-height: 150px;
+  resize: none;
 }
 
 .create-post-form button {

@@ -1,4 +1,3 @@
-// Filter.js
 import React from 'react';
 import '../stylesheets/filter/filter.scss';
 
@@ -7,12 +6,12 @@ const Filter = ({ onFilterChange }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    onFilterChange(name, value); // Pass the filter criteria to Forum
+    onFilterChange(name, value); 
   };
 
   const handleSearch = (e) => {
     setSearch(e.target.value);
-    onFilterChange("search", e.target.value); // Send search input to Forum
+    onFilterChange("search", e.target.value);
   };
 
   return (

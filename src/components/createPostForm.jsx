@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const CreatePostForm = () => {
   const [title, setTitle] = useState('');
+  const [summary, setSummary] = useState('');
   const [description, setDescription] = useState('');
   const [location, setLocation] = useState('');
   const [type, setType] = useState('');
@@ -11,15 +12,26 @@ const CreatePostForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    const newPost = {
+      id: Date.now(),
+      title,
+      summary,
+      description,
+      location,
+      type,
+      gravity,
+    };
 
-    // Limpiar el formulario
+    console.log("Publicación enviada:", newPost);
+
     setTitle('');
+    setSummary('');
     setDescription('');
     setLocation('');
     setType('');
     setGravity('media');
 
-    // Redirigir a la pantalla de confirmación
     navigate('/post-confirmation');
   };
 
@@ -48,12 +60,22 @@ const CreatePostForm = () => {
           required
         />
       </div>
+
       <textarea
-        placeholder="Descripción"
+        placeholder="Resumen breve de la publicación"
+        value={summary}
+        onChange={(e) => setSummary(e.target.value)}
+        required
+        className="summary-textarea"
+      />
+
+      <textarea
+        placeholder="Descripción completa"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         required
       />
+
       <label htmlFor="gravity">Gravedad</label>
       <select
         id="gravity"

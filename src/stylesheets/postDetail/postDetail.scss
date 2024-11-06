@@ -3,23 +3,23 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background-color: #FFFFFF; /* Fondo blanco */
+    background-color: #FFFFFF; 
 }
   
 .post-detail {
-    background-color: #A2BCE0; /* Fondo en Powder Blue */
-    color: #0B5563; /* Texto en Midnight Green */
+    background-color: #A2BCE0; 
+    color: #0B5563;
     border-radius: 8px;
     border: 2px solid #5299D3;
     padding: 20px;
     max-width: 600px;
     width: 100%;
     text-align: left;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
 }
   
 h2 {
-    color: #000000; /* Título en Midnight Green */
+    color: #000000; 
     margin-bottom: 10px;
 }
   
@@ -28,28 +28,28 @@ h2 {
     padding: 5px 10px;
     border-radius: 4px;
     font-weight: bold;
-    color: #000000 !important; /* Texto en negro */
+    color: #000000 !important; 
     margin-bottom: 10px;
 }
   
 .gravity-flag.media {
-    background-color: yellow; /* Color original para gravedad media */
+    background-color: yellow; 
 }
 
 .gravity-flag.grave {
-    background-color: orange; /* Color original para gravedad grave */
+    background-color: orange;
 }
 
 .gravity-flag.muy-grave {
-    background-color: red; /* Color original para muy grave */
+    background-color: red;
 }
   
 .description-box {
-    background-color: #8AAAC8; /* Fondo celeste más oscuro */
+    background-color: #8AAAC8;
     border-radius: 8px;
     padding: 15px;
     margin-top: 15px;
-    color: #0B5563; /* Texto en Midnight Green */
+    color: #0B5563;
 }
 
 .message-box {
@@ -57,15 +57,15 @@ h2 {
     align-items: center;
     margin-top: 15px;
     padding: 10px;
-    background-color: #8AAAC8; /* Fondo celeste más oscuro */
+    background-color: #8AAAC8; 
     border-radius: 8px;
 }
   
 .message-input {
     flex-grow: 1;
     border: none;
-    background-color: #fff; /* Fondo en Powder Blue */
-    color: #0B5563; /* Texto en Midnight Green */
+    background-color: #fff; 
+    color: #0B5563;
     padding: 10px;
     border-radius: 20px;
     outline: none;
@@ -73,11 +73,11 @@ h2 {
 }
 
 .message-input::placeholder {
-    color: #888888; /* Texto tenue */
+    color: #888888; 
 }
 
 .send-button {
-    background-color: #5299D3; /* Fondo en Celestial Blue */
+    background-color: #5299D3; 
     border: none;
     border-radius: 50%;
     padding: 10px;
@@ -85,7 +85,7 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #FFFFFF; /* Color blanco para el icono */
+    color: #FFFFFF;
 }
 
 .confirmation-message {
@@ -93,8 +93,8 @@ h2 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #A2BCE0; /* Fondo celeste más oscuro */
-    color: #000000; /* Texto blanco */
+    background-color: #A2BCE0; 
+    color: #000000;
     padding: 20px;
     border-radius: 8px;
     border: 1px solid #5299D3; 

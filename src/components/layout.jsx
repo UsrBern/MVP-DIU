@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import HomePage from '../pages/home_page';
 import CreatePostScreen from '../pages/createPostScreen';
-import PostConfirmation from '../pages/postConfirmation';  // Nueva pantalla de confirmación
+import PostConfirmation from '../pages/postConfirmation';  
 import NavBar from './nav_bar';
 import PostDetail from '../pages/postDetail';
 
@@ -14,7 +14,7 @@ const Layout = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/create-post" element={<CreatePostScreen />} />
-        <Route path="/post-confirmation" element={<PostConfirmation />} />  {/* Ruta para la confirmación */}
+        <Route path="/post-confirmation" element={<PostConfirmation />} /> 
         <Route path="/post/:id" element={<PostDetail />} />
       </Routes>
     </Router>

@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { posts } from '../data/posts';
 
-const PostDetailPage = () => {
+const PostOP = () => {
+  const post = posts.find((post) => post.id === 1); // Cargar la publicación del OP
   const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
+
+  if (!post) {
+    return <p>Publicación no encontrada.</p>;
+  }
 
   const handleDelete = () => {
     setShowPopup(true);
@@ -17,8 +23,12 @@ const PostDetailPage = () => {
 
   return (
     <div className="post-detail-page">
-      <h3>Título de la Publicación</h3>
-      <p>Este es el contenido de la publicación...</p>
+      <h3>{post.title}</h3>
+      <p><strong>Ubicación:</strong> {post.location}</p>
+      <p><strong>Tipo:</strong> {post.type}</p>
+      <p><strong>Gravedad:</strong> {post.gravity}</p>
+      <p><strong>Descripción:</strong> {post.description}</p>
+
       <button className="delete-button" onClick={handleDelete}>
         🗑️ Eliminar
       </button>
@@ -34,4 +44,4 @@ const PostDetailPage = () => {
   );
 };
 
-export default PostDetailPage;
+export default PostOP;

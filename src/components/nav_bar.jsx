@@ -20,12 +20,13 @@ export const NavBar = ({ isLoggedIn, username }) => {
       <NavLink className={navLinkClass} to="/">
         Foro
       </NavLink>
-      
+
       <NavLink className={navLinkClass} to="/create-post">
         Crear Publicación
       </NavLink>
 
       <NavLink to="/profile" className="nav-bar__user">
+        <span className="user-text">Perfil</span>
         <img src={userIcon} alt="Usuario" className="user-icon" />
       </NavLink>
     </nav>

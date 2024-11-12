@@ -14,6 +14,8 @@ const HomePage = () => {
   const [selectedType, setSelectedType] = useState('');
 
   useEffect(() => {
+    localStorage.removeItem('posts');
+    
     const storedPosts = JSON.parse(localStorage.getItem('posts'));
     if (storedPosts && storedPosts.length > 0) {
       setPosts(storedPosts);

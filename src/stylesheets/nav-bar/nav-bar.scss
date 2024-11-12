@@ -33,11 +33,24 @@
   font-size: 1rem;
 }
 
-.nav-bar__user{
+.nav-bar__user {
   margin-left: auto;
-  img.user-icon{
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  max-width: 120px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+
+  img.user-icon {
+    width: auto;
+    height: 45px;
+  }
+
+  .user-text {
+    font-size: 1rem;
+    color: #333;
+    white-space: nowrap;
   }
 }
+

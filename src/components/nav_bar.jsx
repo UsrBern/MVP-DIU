@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../../logo.png';
+import userIcon from '../assets/user-icon.png';
 
 export const NavBar = ({ isLoggedIn, username }) => {
   const navLinkClass = ({ isActive }) => {
@@ -19,18 +20,14 @@ export const NavBar = ({ isLoggedIn, username }) => {
       <NavLink className={navLinkClass} to="/">
         Foro
       </NavLink>
+      
       <NavLink className={navLinkClass} to="/create-post">
         Crear Publicación
       </NavLink>
 
-      {isLoggedIn && (
-        <div className="nav-bar__auth">
-          <span className="nav-bar__username">Bienvenido, {username}</span>
-          <button className="nav-bar__logout" disabled>
-            Cerrar Sesión
-          </button>
-        </div>
-      )}
+      <NavLink to="/profile" className="nav-bar__user">
+        <img src={userIcon} alt="Usuario" className="user-icon" />
+      </NavLink>
     </nav>
   );
 };

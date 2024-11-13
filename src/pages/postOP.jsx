@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { posts } from '../data/posts';
+import '../stylesheets/post/postOP.scss';
 
 const PostOP = () => {
-  const post = posts.find((post) => post.id === 1); // Cargar la publicación del OP
+  const post = posts.find((post) => post.id === 1);
   const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
 
@@ -22,24 +23,33 @@ const PostOP = () => {
   };
 
   return (
-    <div className="post-detail-page">
-      <h3>{post.title}</h3>
-      <p><strong>Ubicación:</strong> {post.location}</p>
-      <p><strong>Tipo:</strong> {post.type}</p>
-      <p><strong>Gravedad:</strong> {post.gravity}</p>
-      <p><strong>Descripción:</strong> {post.description}</p>
-
-      <button className="delete-button" onClick={handleDelete}>
-        🗑️ Eliminar
-      </button>
-
-      {showPopup && (
-        <div className="delete-popup">
-          <p>¿Estás seguro de que deseas eliminar esta publicación?</p>
-          <button onClick={confirmDelete}>Sí, eliminar</button>
-          <button onClick={() => setShowPopup(false)}>Cancelar</button>
+    <div className="post-detail-container">
+      <div className="post-detail">
+        <h2>{post.title}</h2>
+        
+        <div className={`gravity-flag ${post.gravity.replace(" ", "-")}`}>
+          {post.gravity}
         </div>
-      )}
+
+        <p><strong>Ubicación:</strong> {post.location}</p>
+        <p><strong>Tipo:</strong> {post.type}</p>
+
+        <div className="description-box">
+          <p>{post.description}</p>
+        </div>
+
+        <button className="delete-button" onClick={handleDelete}>
+          🗑️ Eliminar
+        </button>
+
+        {showPopup && (
+          <div className="confirmation-message">
+            <p>¿Estás seguro de que deseas eliminar esta publicación?</p>
+            <button onClick={confirmDelete}>Sí, eliminar</button>
+            <button onClick={() => setShowPopup(false)}>Cancelar</button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

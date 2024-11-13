@@ -32,7 +32,8 @@ const CreatePostForm = () => {
     setType('');
     setGravity('media');
 
-    navigate('/post-confirmation');
+    alert("Gracias por contribuir. Tu publicación ha sido enviada correctamente.");
+    navigate('../');
   };
 
   return (

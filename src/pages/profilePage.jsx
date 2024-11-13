@@ -1,17 +1,26 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import '../stylesheets/profilePage/profilePage.scss';
+import userIcon from '../assets/user-icon.png';
 
 const ProfilePage = () => {
   return (
     <div className="profile-page">
-      <h2>Perfil de Usuario</h2>
-      <p><strong>Nombre:</strong> Juan Pérez</p>
-      <p><strong>Email:</strong> juanperez@example.com</p>
-      
-      <div className="profile-tabs">
-        <NavLink to="/profile/history" className="profile-tab">
+      <div className="profile-card">
+        <div className="profile-picture">
+        <img src={userIcon} alt="Foto del usuario" className="user-icon" />
+        </div>
+
+        <h3 className="profile-name">Juan Pérez</h3>
+
+        <NavLink to="/profile/history" className="history-button">
           Historial de Publicaciones
         </NavLink>
+
+        <div className="personal-info">
+          <h4>Información Personal</h4>
+          <p><strong>Dirección de correo:</strong> juan.perez@apoyocatastrofes.cl</p>
+        </div>
       </div>
     </div>
   );

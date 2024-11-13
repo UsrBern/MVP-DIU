@@ -9,15 +9,13 @@ const PostDetail = () => {
   const post = posts.find((post) => post.id === parseInt(id, 10));
 
   const [message, setMessage] = useState(""); 
-  const [showConfirmation, setShowConfirmation] = useState(false);
 
   if (!post) return <p>Publicación no encontrada.</p>;
 
   const handleSendMessage = () => {
     if (message.trim() !== "") {
-      setShowConfirmation(true);
       setMessage("");
-      setTimeout(() => setShowConfirmation(false), 3000);
+      alert("Mensaje enviado correctamente");
     }
   };
 
@@ -49,12 +47,6 @@ const PostDetail = () => {
             <img src={sendIcon} alt="Enviar" className="send-icon" />
           </button>
         </div>
-
-        {showConfirmation && (
-          <div className="confirmation-message">
-            Mensaje enviado correctamente
-          </div>
-        )}
       </div>
     </div>
   );

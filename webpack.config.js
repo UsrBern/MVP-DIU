@@ -13,7 +13,8 @@ module.exports = (_, argv) => ({
       filename: '[name].[contenthash].css'
     }),
     new HtmlWebpackPlugin({
-      title: 'Apoyo Catastrofes'
+      title: 'Apoyo Catastrofes',
+      favicon: './logo.png'
     })
   ],
   resolve: {

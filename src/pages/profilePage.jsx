@@ -13,8 +13,8 @@ const ProfilePage = () => {
 
         <h3 className="profile-name">Juan Pérez</h3>
 
-        <NavLink to="/profile/history" className="history-button">
-          Historial de Publicaciones
+        <NavLink to="/profile/posts" className="history-button">
+          Mis Publicaciones
         </NavLink>
 
         <div className="personal-info">

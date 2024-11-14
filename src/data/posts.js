@@ -1,13 +1,5 @@
 export const posts = [
-  {
-    id: 1,
-    title: "Corte de Electricidad",
-    resumen: "Un corte eléctrico afecta varias cuadras del centro de Santiago.",
-    description: "Un corte de electricidad ha afectado varias cuadras del centro de Santiago, dejando a muchas familias sin suministro eléctrico. Se necesita asistencia para proporcionar generadores eléctricos y linternas para las zonas afectadas, especialmente para adultos mayores y personas dependientes de equipos médicos.",
-    gravity: "media",
-    location: "Región Metropolitana",
-    type: "Corte de Electricidad",
-  },
+  
   {
     id: 2,
     title: "Incendio en casa",
@@ -16,6 +8,7 @@ export const posts = [
     gravity: "grave",
     location: "Región Metropolitana",
     type: "Incendio",
+    delete: false
   },
   {
     id: 3,
@@ -25,6 +18,7 @@ export const posts = [
     gravity: "muy grave",
     location: "Región de Valparaíso",
     type: "Tsunami",
+    delete: false
   },
   {
     id: 4,
@@ -34,6 +28,7 @@ export const posts = [
     gravity: "grave",
     location: "Región de La Araucanía",
     type: "Incendio Forestal",
+    delete: false
   },
   {
     id: 5,
@@ -43,6 +38,7 @@ export const posts = [
     gravity: "media",
     location: "Región de Antofagasta",
     type: "Temblor",
+    delete: false
   },
   {
     id: 6,
@@ -52,6 +48,7 @@ export const posts = [
     gravity: "grave",
     location: "Región del Biobío",
     type: "Inundación",
+    delete: false
   },
   {
     id: 7,
@@ -61,6 +58,7 @@ export const posts = [
     gravity: "muy grave",
     location: "Región de La Araucanía",
     type: "Evacuación Volcánica",
+    delete: false
   },
   {
     id: 8,
@@ -70,6 +68,7 @@ export const posts = [
     gravity: "grave",
     location: "Región de Valparaíso",
     type: "Derrumbe",
+    delete: false
   },
   {
     id: 9,
@@ -79,6 +78,7 @@ export const posts = [
     gravity: "grave",
     location: "Región de Valparaíso",
     type: "Incendio",
+    delete: false
   },
   {
     id: 10,
@@ -88,6 +88,7 @@ export const posts = [
     gravity: "media",
     location: "Región Metropolitana",
     type: "Falla de Suministro",
+    delete: false
   },
   {
     id: 11,
@@ -97,6 +98,7 @@ export const posts = [
     gravity: "muy grave",
     location: "Región de Coquimbo",
     type: "Tsunami",
+    delete: false
   },
   {
     id: 12,
@@ -106,6 +108,7 @@ export const posts = [
     gravity: "grave",
     location: "Región Metropolitana",
     type: "Incendio",
+    delete: false
   },
   {
     id: 13,
@@ -115,6 +118,7 @@ export const posts = [
     gravity: "grave",
     location: "Región de Los Lagos",
     type: "Deslizamiento de Tierra",
+    delete: false
   },
   {
     id: 14,
@@ -124,6 +128,7 @@ export const posts = [
     gravity: "media",
     location: "Región de Arica y Parinacota",
     type: "Temblor",
+    delete: false
   },
   {
     id: 15,
@@ -133,5 +138,16 @@ export const posts = [
     gravity: "grave",
     location: "Región de Coquimbo",
     type: "Incendio Forestal",
+    delete: false
+  },
+  {
+    id: 1,
+    title: "Corte de Electricidad",
+    resumen: "Un corte eléctrico afecta varias cuadras del centro de Santiago.",
+    description: "Un corte de electricidad ha afectado varias cuadras del centro de Santiago, dejando a muchas familias sin suministro eléctrico. Se necesita asistencia para proporcionar generadores eléctricos y linternas para las zonas afectadas, especialmente para adultos mayores y personas dependientes de equipos médicos.",
+    gravity: "media",
+    location: "Región Metropolitana",
+    type: "Corte de Electricidad",
+    delete: false
   },
 ];

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { posts } from '../data/posts';
 import '../stylesheets/post/postOP.scss';
 
-const PostOP = () => {
+const PostOP = ({ setUseMockData1 }) => {
   const post = posts.find((post) => post.id === 1);
   const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
@@ -14,12 +14,13 @@ const PostOP = () => {
 
   const handleDelete = () => {
     setShowPopup(true);
+    setUseMockData1(false);
   };
 
   const confirmDelete = () => {
     setShowPopup(false);
-    navigate('/profile/history');
     alert("La publicación ha sido eliminada.");
+    navigate('/profile/posts');
   };
 
   return (

@@ -1,14 +1,16 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { posts } from '../data/posts';
-import '../stylesheets/profilePage/historyPage.scss'; 
+import { posts as mockPosts1 } from '../data/posts';
+import { posts as mockPosts2 } from '../data/posts2';
+import '../stylesheets/profilePage/historyPage.scss';
 
-const HistoryPage = () => {
-    const userPosts = posts.filter((post) => post.id === 1);
+const HistoryPage = ({ useMockData1 }) => {
+    const posts = useMockData1 ? mockPosts1 : mockPosts2;
+    const userPosts = posts.filter((post) => post.id === 1 && post.delete === false);
 
     return (
         <div className="page-container">
-            <h2>Historial de Publicaciones</h2>
+            <h2>Mis Publicaciones</h2>
             <div className="posts-list">
                 {userPosts.length > 0 ? (
                     userPosts.map((post) => (

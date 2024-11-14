@@ -1,35 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Post from '../components/post';
-import { posts as mockPosts } from '../data/posts'; 
-import { locations, gravities, types as types } from '../data/filtros'; 
+import { posts as mockPosts1 } from '../data/posts';
+import { posts as mockPosts2 } from '../data/posts2';
+import { locations, gravities, types } from '../data/filtros';
 import '../stylesheets/home_page/home_page.scss';
 
-const HomePage = () => {
-  const navigate = useNavigate(); 
+const HomePage = ({ useMockData1, setUseMockData1 }) => {
+  const navigate = useNavigate();
   const [posts, setPosts] = useState([]);
-  const [searchTerm, setSearchTerm] = useState(''); 
-  const [selectedLocation, setSelectedLocation] = useState(''); 
-  const [selectedGravity, setSelectedGravity] = useState(''); 
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedLocation, setSelectedLocation] = useState('');
+  const [selectedGravity, setSelectedGravity] = useState('');
   const [selectedType, setSelectedType] = useState('');
 
   useEffect(() => {
-    localStorage.removeItem('posts');
-    
-    const storedPosts = JSON.parse(localStorage.getItem('posts'));
-    if (storedPosts && storedPosts.length > 0) {
-      setPosts(storedPosts);
-    } else {
-      setPosts(mockPosts); 
-      localStorage.setItem('posts', JSON.stringify(mockPosts));
-    }
-  }, []);
+    const initialPosts = useMockData1 ? mockPosts1 : mockPosts2;
+    const filteredPosts = initialPosts.filter(post => !post.delete);
+    setPosts(filteredPosts);
+    localStorage.setItem('posts', JSON.stringify(filteredPosts));
+  }, [useMockData1]);
 
   useEffect(() => {
     localStorage.setItem('posts', JSON.stringify(posts));
   }, [posts]);
 
- 
   const handleViewPost = (id) => {
     navigate(`/post/${id}`);
   };
@@ -39,7 +34,6 @@ const HomePage = () => {
     const matchesLocation = selectedLocation ? post.location === selectedLocation : true;
     const matchesGravity = selectedGravity ? post.gravity === selectedGravity : true;
     const matchesType = selectedType ? post.type === selectedType : true;
-
     return matchesTitle && matchesLocation && matchesGravity && matchesType;
   });
 
@@ -99,7 +93,7 @@ const HomePage = () => {
       <div className="posts-list">
         {filteredPosts.length > 0 ? (
           filteredPosts.map((post) => (
-            <Post key={post.id} post={post} onViewPost={handleViewPost} /> // Pasamos handleViewPost
+            <Post key={post.id} post={post} onViewPost={handleViewPost} />
           ))
         ) : (
           <p>No se encontraron publicaciones con esos filtros.</p>
@@ -110,4 +104,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
